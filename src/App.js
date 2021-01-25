@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import Front from './Layout/Front';
+import About from './Layout/About'
+import Main from './Layout/Main'
+import Services from './Layout/Services'
+import Footer from './Layout/Footer'
+import Header from './Layout/Header';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+import React, { Component } from 'react'
+
+export default class App extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      popUp: false,
+      scrolled: false
+    }
+    this.openMenu = this.openMenu.bind(this)
+    this.handleScroll = this.handleScroll.bind(this)
+  }
+  openMenu() { this.setState({ popUp: !this.state.popUp }) }
+  componentDidMount() { window.addEventListener('scroll', this.handleScroll); }
+  handleScroll(e) { this.setState({ scrolled: true }) }
+
+  render() {
+    const { popUp, scrolled } = this.state
+    return (
+      <div className="App">
+        <Header openMenu={this.openMenu} popUp={popUp} scrolled={scrolled} />
+        <Front />
+        <About />
+        <Main />
+        <div id='wrapper'>
+          <Services />
+        </div>
+        <Footer />
+      </div>
+    )
+  }
 }
-
-export default App;

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Background from '../video/background.mp4'
+import Background from '../video/background1.mp4'
 
 export default class Front extends Component {
     constructor(props) {

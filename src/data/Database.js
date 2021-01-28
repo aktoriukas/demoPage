@@ -17,5 +17,29 @@ class Database {
             `
         ]
     }
+    get preferences() {
+        return [
+            {
+                type: 'Your privacy',
+                name: 'privacy',
+                allow: false
+            },
+            {
+                type: 'Strictly necessary cookies',
+                name: 'necessary',
+                allow: false
+            },
+            {
+                type: 'Functionality cookies',
+                name: 'functionality',
+                allow: false
+            },
+            {
+                type: 'Targeting and advertising cookies',
+                name: 'advertising',
+                allow: false
+            }
+        ]
+    }
 }
 export default new Database();

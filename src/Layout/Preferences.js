@@ -8,28 +8,7 @@ export default class Preferences extends Component {
 
         this.state = {
             currentItem: 0,
-            preferences: [
-                {
-                    type: 'Your privacy',
-                    name: 'privacy',
-                    allow: false
-                },
-                {
-                    type: 'Strictly necessary cookies',
-                    name: 'necessary',
-                    allow: false
-                },
-                {
-                    type: 'Functionality cookies',
-                    name: 'functionality',
-                    allow: false
-                },
-                {
-                    type: 'Targeting and advertising cookies',
-                    name: 'advertising',
-                    allow: false
-                }
-            ]
+            preferences: [...Database.preferences]
         }
         this.changeItem = this.changeItem.bind(this)
         this.togglePreference = this.togglePreference.bind(this)
